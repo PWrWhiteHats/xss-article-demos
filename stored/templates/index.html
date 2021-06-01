@@ -1,0 +1,21 @@
+<form action="/" method="POST">
+    <label for="note">Add a note</label>
+    <br>
+    <textarea id="note" name="note" rows="4" cols="50"></textarea>
+    <br>
+    <input type="submit" value="add">
+</form>
+
+{% autoescape false %}
+    {% if memory %}
+        <ul>
+        {% for item in memory %}
+            <li>
+                <b>ID:</b> {{item.id}}
+                <b>NOTE:</b> {{item.note}} 
+            </li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+{% endautoescape %}
+

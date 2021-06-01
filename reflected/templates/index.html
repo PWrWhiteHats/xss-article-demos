@@ -1,0 +1,18 @@
+<form action="/" method="GET">
+    <label for="q">What do you want to look for?</label>
+    <br>
+    <input name="q" id="q" type="search" required>
+    <input type="submit" value="search">
+</form>
+
+{% if q %}
+    Results for <b>{{ q|safe }}</b>:
+    <br>
+    {% if findings %}
+        <ul>
+        {% for f in findings %}
+            <li>{{f}}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+{% endif %}
